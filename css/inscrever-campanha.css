@@ -1,0 +1,642 @@
+:root{
+  --bg:#FAF9F8; --surface:#FFFFFF; --surface2:#F3F1EF; --border:#E4E0DC; --border2:#CFC9C3;
+  --text:#1A1817; --text2:#57514E; --text3:#8A827E;
+  --brand:#B4232A; --brand-hover:#8F1821; --brand-soft:#FBE3E4; --brand-soft-text:#8F1821; --brand-soft-border:#F5C2C4;
+  --ok-soft:#E3F4EB; --ok-text:#0B5E3C; --ok-border:#BFE5D1; --ok-dot:#0E7A4F;
+  --info-soft:#E6EEF9; --info-text:#154A85; --info-border:#C7DAF2;
+  --radius-sm:10px; --radius-md:12px; --radius-lg:18px; --radius-xl:20px;
+  --max:1180px;
+}
+
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:'IBM Plex Sans',system-ui,sans-serif;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+}
+
+h1,h2,h3{
+  font-family:Archivo,sans-serif;
+  letter-spacing:-.02em;
+  margin:0;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+button{
+  font:inherit;
+  color:inherit;
+  cursor:pointer;
+  background:none;
+}
+
+input,select,textarea{
+  font:inherit;
+  color:inherit;
+}
+
+:focus-visible{
+  outline:3px solid #B4232A59;
+  outline-offset:2px;
+}
+
+::placeholder{color:var(--text3)}
+
+.container{
+  width:min(var(--max),calc(100% - 32px));
+  margin:0 auto;
+}
+
+.icon{
+  font-family:'Material Symbols Rounded';
+  font-weight:400;
+  font-style:normal;
+  line-height:1;
+  display:inline-block;
+  user-select:none;
+}
+
+
+/* Header */
+
+.site-header{
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:var(--surface);
+  border-bottom:1px solid var(--border);
+}
+
+.header-inner{
+  min-height:72px;
+  display:flex;
+  align-items:center;
+  gap:24px;
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-mark{
+  width:30px;
+  height:30px;
+  background:var(--brand);
+  border-radius:50% 50% 50% 3px;
+  transform:rotate(-45deg);
+  display:grid;
+  place-items:center;
+  flex:none;
+}
+
+.logo-dot{
+  width:10px;
+  height:10px;
+  border:3px solid var(--surface);
+  border-radius:50%;
+}
+
+.logo-text{
+  font:800 17px/1 Archivo,sans-serif;
+  letter-spacing:-.02em;
+  color:var(--text);
+}
+
+.logo-text .brand{color:var(--brand)}
+
+.nav{
+  display:flex;
+  gap:4px;
+  margin-left:auto;
+}
+
+.nav a{
+  font:600 14px/1 'IBM Plex Sans',sans-serif;
+  color:var(--text2);
+  padding:10px 14px;
+  border-radius:10px;
+}
+
+.nav a:hover,
+.nav a.active{
+  color:var(--brand);
+  background:var(--brand-soft);
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.icon-btn{
+  width:40px;
+  height:40px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:12px;
+  display:grid;
+  place-items:center;
+  color:var(--text2);
+}
+
+.icon-btn .icon{font-size:20px}
+
+.profile-chip{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:12px;
+  padding:7px 14px 7px 7px;
+  font:600 14px/1 'IBM Plex Sans',sans-serif;
+  color:var(--text);
+}
+
+.avatar{
+  width:28px;
+  height:28px;
+  border-radius:9px;
+  background:var(--brand-soft);
+  color:var(--brand-soft-text);
+  display:grid;
+  place-items:center;
+  font:600 12px/1 'IBM Plex Sans',sans-serif;
+}
+
+.mobile-nav{display:none}
+
+
+/* Botões */
+
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  height:48px;
+  padding:0 20px;
+  border-radius:var(--radius-md);
+  font:600 15px/1 'IBM Plex Sans',sans-serif;
+  border:1px solid transparent;
+  transition:background .15s ease,border-color .15s ease;
+  cursor:pointer;
+}
+
+.btn .icon{font-size:20px}
+
+.btn-primary{
+  background:var(--brand);
+  color:#fff;
+}
+
+.btn-primary:hover{background:var(--brand-hover)}
+
+.btn-ghost{
+  background:transparent;
+  border-color:transparent;
+  color:var(--text2);
+}
+
+.btn-ghost:hover{color:var(--brand)}
+
+.btn-lg{height:52px}
+
+
+/* Badges */
+
+.badge{
+  display:inline-flex;
+  align-items:center;
+  gap:7px;
+  border-radius:999px;
+  padding:6px 12px;
+  font:600 12px/1 'IBM Plex Sans',sans-serif;
+}
+
+.badge .dot{
+  width:7px;
+  height:7px;
+  border-radius:50%;
+}
+
+.badge-open{
+  background:var(--ok-soft);
+  color:var(--ok-text);
+}
+
+.badge-open .dot{background:var(--ok-dot)}
+
+
+/* Estrutura */
+
+.panel{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-xl);
+  padding:26px;
+}
+
+.kicker{
+  font:500 12px/1 'IBM Plex Mono',monospace;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:var(--brand);
+}
+
+.section{padding:56px 0}
+
+
+/* Etapas */
+
+.step-track{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin:28px 0 22px;
+}
+
+.step-pill{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font:600 14px/1 'IBM Plex Sans',sans-serif;
+  color:var(--brand);
+  white-space:nowrap;
+}
+
+.step-pill.step-inactive{color:var(--text3)}
+
+.step-pill .step-dot{
+  display:grid;
+  place-items:center;
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  font:600 13px/1 'IBM Plex Mono',monospace;
+  background:var(--brand);
+  color:#fff;
+}
+
+.step-inactive .step-dot{
+  background:var(--surface2);
+  color:var(--text2);
+}
+
+.step-line{
+  flex:1;
+  height:2px;
+  background:var(--border);
+}
+
+
+/* Layout */
+
+.form-layout{
+  display:grid;
+  grid-template-columns:1.5fr .9fr;
+  gap:22px;
+  align-items:start;
+}
+
+.form-panel{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  padding:26px;
+}
+
+.form-panel h1{
+  font:800 clamp(1.6rem,3vw,1.9rem)/1.1 Archivo,sans-serif;
+  margin:8px 0;
+}
+
+.form-panel > p{
+  font-size:16px;
+  color:var(--text2);
+  margin:0 0 22px;
+}
+
+
+/* Dados da conta */
+
+.account-box{
+  border:1px solid var(--border);
+  border-radius:14px;
+  background:var(--surface2);
+  padding:16px;
+  margin-bottom:14px;
+}
+
+.account-header{
+  display:flex;
+  align-items:center;
+  gap:11px;
+  padding-bottom:14px;
+  border-bottom:1px solid var(--border);
+}
+
+.account-header > .icon{
+  font-size:25px;
+  color:var(--brand);
+}
+
+.account-header div{
+  display:grid;
+  gap:2px;
+}
+
+.account-header strong{font-size:14px}
+
+.account-header span{
+  font-size:12px;
+  color:var(--text3);
+}
+
+.account-data{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  padding-top:14px;
+}
+
+.account-field{
+  display:grid;
+  gap:2px;
+}
+
+.account-label{
+  font-size:12px;
+  color:var(--text3);
+}
+
+.account-field strong{
+  font-size:14px;
+  font-weight:600;
+}
+
+
+/* Aviso */
+
+.notice-box{
+  padding:13px 15px;
+  border-radius:12px;
+  background:var(--info-soft);
+  border:1px solid var(--info-border);
+  color:var(--info-text);
+  font-size:13px;
+  margin-bottom:22px;
+}
+
+
+/* Formulário */
+
+.form-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:18px;
+}
+
+.field{
+  display:grid;
+  gap:7px;
+}
+
+.field.full{grid-column:1/-1}
+
+.field label{
+  font:600 14px/1.4 'IBM Plex Sans',sans-serif;
+}
+
+.field .hint{
+  font-weight:400;
+  color:var(--text3);
+}
+
+.field select,
+.field textarea{
+  border:1px solid var(--border2);
+  border-radius:12px;
+  padding:0 14px;
+  background:var(--surface);
+  width:100%;
+}
+
+.field select{
+  height:48px;
+  font-family:'IBM Plex Sans',sans-serif;
+}
+
+.field textarea{
+  height:auto;
+  padding:12px 14px;
+  resize:vertical;
+}
+
+
+/* LGPD */
+
+.lgpd-row{
+  grid-column:1/-1;
+  display:flex;
+  gap:10px;
+  align-items:flex-start;
+}
+
+.lgpd-box{
+  width:22px;
+  height:22px;
+  border-radius:6px;
+  border:1px solid var(--border2);
+  background:var(--surface);
+  display:grid;
+  place-items:center;
+  flex:none;
+  margin-top:2px;
+}
+
+.lgpd-box input{
+  position:absolute;
+  opacity:0;
+  width:22px;
+  height:22px;
+  margin:0;
+  cursor:pointer;
+}
+
+.lgpd-text{
+  font-size:14px;
+  color:var(--text2);
+}
+
+
+/* Ações */
+
+.form-actions{
+  grid-column:1/-1;
+  display:flex;
+  gap:12px;
+  margin-top:4px;
+}
+
+.form-actions .btn-primary{flex:1}
+
+
+/* Resumo da campanha */
+
+.summary-card img{
+  width:100%;
+  height:120px;
+  object-fit:cover;
+  border-radius:14px;
+  margin-bottom:16px;
+}
+
+.summary-card .summary-title{
+  font:700 19px/1.25 Archivo,sans-serif;
+  margin:12px 0;
+}
+
+.summary-info{
+  display:grid;
+  gap:9px;
+  font-size:14px;
+  color:var(--text2);
+}
+
+.summary-info span{
+  display:flex;
+  gap:8px;
+  align-items:center;
+}
+
+.summary-info .icon{
+  font-size:18px;
+  color:var(--brand);
+}
+
+.summary-note{
+  display:flex;
+  gap:10px;
+  background:var(--ok-soft);
+  border:1px solid var(--ok-border);
+  border-radius:12px;
+  padding:13px;
+  margin-top:16px;
+}
+
+.summary-note .icon{
+  font-size:19px;
+  color:var(--ok-text);
+  flex:none;
+}
+
+.summary-note p{
+  font-size:13px;
+  color:var(--ok-text);
+  margin:0;
+}
+
+
+/* Rodapé */
+
+.site-footer{
+  border-top:1px solid var(--border);
+  background:var(--surface);
+  padding:26px 0;
+  margin-top:40px;
+}
+
+.footer-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  font:400 14px/1.5 'IBM Plex Sans',sans-serif;
+  color:var(--text3);
+}
+
+.footer-brand{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  color:var(--text2);
+}
+
+.footer-brand .icon{
+  font-size:18px;
+  color:var(--brand);
+}
+
+
+/* Responsivo */
+
+@media(max-width:900px){
+
+  .nav{display:none}
+
+  .header-actions .profile-chip{display:none}
+
+  .mobile-nav{
+    display:flex;
+    flex-direction:column;
+    padding:0 0 16px;
+  }
+
+  .mobile-nav a{
+    display:block;
+    padding:11px 0;
+    font:700 15px/1 'IBM Plex Sans',sans-serif;
+    color:var(--text2);
+  }
+
+  .form-layout{grid-template-columns:1fr}
+
+}
+
+@media(max-width:620px){
+
+  .header-inner{
+    min-height:64px;
+    gap:10px;
+  }
+
+  .account-data{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .form-grid{grid-template-columns:1fr}
+
+  .field.full{grid-column:auto}
+
+  .form-panel{padding:20px}
+
+  .form-actions{flex-direction:column}
+
+  .form-actions .btn{width:100%}
+
+  .footer-inner{
+    flex-direction:column;
+    text-align:center;
+  }
+
+}
